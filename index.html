@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossroad Chaos</title>
-    <link href="https://fonts.cdnfonts.com/css/easvhs" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
     <style>
         body {
-            font-family: 'EASVHS', sans-serif;
+            background-color: #000;
+            color: red;
+            font-family: 'Special Elite', cursive;
+            text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-        }
-
-        header {
-            padding: 20px;
-            background-color: #333;
         }
 
         #logo {
             max-width: 100%;
-        }
-
-        #tagline {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #333;
+            height: auto;
         }
     </style>
+    <link rel="icon" type="image/png" href="https://tr.rbxcdn.com/f046a4fb2a778e769a57dde78e92a098/352/352/Image/Png">
+    <title>Crossroad Chaos</title>
 </head>
-
 <body>
-    <header>
-        <img id="logo" src="https://crossroadchaos.com/img/logo.png" alt="Crossroad Chaos Logo">
-        <p id="tagline">Play by your own rules and make others bleed.</p>
-    </header>
+    <img src="https://crossroadchaos.com/img/cc-short.png" alt="Crossroad Chaos Logo" id="logo" width="500px">
+    <h1>Update 2.3.1</h1>
+    <h1 id="countdown"></h1>
 
-    <main>
-        <!-- Add your game content here -->
-        <h1>Welcome to Crossroad Chaos!</h1>
-        <p>Explore the chaos, make your choices, and dominate the crossroads.</p>
-        <!-- Add more content as needed -->
-    </main>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Oct 23, 2023 00:00:00").getTime();
 
-    <footer>
-        <p>&copy; 2023 - Crossroad Chaos</p>
-    </footer>
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </body>
-
 </html>
